@@ -1,0 +1,18 @@
+import { pedirCarta } from "./pedir-carta";
+
+/**
+ * 
+ * @param {Number}   puntosMinimos puntos minimos que la computadora necesita para ganar
+ * @param {Array<string>}vdeck 
+ */
+export const turnoComputadora = (puntosMinimos) => {
+  let puntosComputadora = 0;
+
+  do {
+    const carta = pedirCarta(deck);
+    puntosComputadora = acumularPuntos(carta, puntosJugadores.length - 1);
+    crearCarta(carta, puntosJugadores.length - 1);
+  } while (puntosComputadora < puntosMinimos && puntosMinimos <= 21);
+
+  determinarGanador();
+};
